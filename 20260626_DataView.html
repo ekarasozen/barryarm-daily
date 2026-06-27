@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barry Arm spectrograms — 2026-06-26</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:            #0f111a;
+    --surface-1:     #171922;
+    --surface-2:     #1e2030;
+    --border:        rgba(255,255,255,0.08);
+    --text-1:        #e8eaf0;
+    --text-2:        #9095a8;
+    --text-3:        #5a6070;
+    --accent:        #4a90d9;
+    --accent-bg:     rgba(74,144,217,0.12);
+    --accent-border: rgba(74,144,217,0.35);
+    --radius:        8px;
+    --missing:       #2a1818;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg); color: var(--text-1);
+    font-size: 14px; line-height: 1.6; padding: 0 0 4rem;
+  }
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(15,17,26,0.88);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0.9rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap;
+  }
+  .title-block h1 { font-size: 17px; font-weight: 500; color: var(--text-1); letter-spacing: -0.01em; }
+  .title-block p  { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+  .header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    padding: 4px 10px; border-radius: 99px;
+    background: var(--accent-bg); color: var(--accent);
+    border: 0.5px solid var(--accent-border); letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 8px; }
+  .nav-links a {
+    font-size: 12px; color: var(--text-2); text-decoration: none;
+    padding: 3px 8px; border-radius: 99px; border: 0.5px solid var(--border);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .nav-links a:hover { color: var(--accent); border-color: var(--accent-border); }
+  .col-headers {
+    display: grid; grid-template-columns: repeat(6, minmax(0,1fr));
+    gap: 6px; padding: 0.6rem 1.5rem;
+    background: var(--bg); border-bottom: 0.5px solid var(--border);
+    position: sticky; top: 57px; z-index: 9;
+  }
+  .col-hdr { font-size: 11px; color: var(--text-3); text-align: center; letter-spacing: 0.03em; }
+  main { padding: 1.25rem 1.5rem; }
+  .hour-block { margin-bottom: 0.5rem; }
+  .hour-label {
+    font-size: 11px; font-weight: 500; color: var(--text-3);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 6px; padding-left: 2px;
+  }
+  .spec-row { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 6px; }
+  .spec-cell {
+    background: var(--surface-1); border: 0.5px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    display: block; text-decoration: none;
+    transition: border-color 0.15s, transform 0.12s;
+  }
+  .spec-cell:hover {
+    border-color: var(--accent-border); transform: translateY(-1px);
+    z-index: 1; position: relative;
+  }
+  .spec-cell img {
+    width: 100%; display: block; aspect-ratio: 14/14;
+    object-fit: cover; background: var(--surface-2);
+  }
+  .missing-img { width: 100%; aspect-ratio: 14/14; display: block; background: var(--missing); }
+  .spec-cell.missing { background: var(--missing); border-color: rgba(180,60,60,0.2); cursor: default; pointer-events: none; }
+  .spec-time {
+    font-size: 10px; color: var(--text-3); text-align: center;
+    padding: 3px 4px 4px; background: var(--surface-2);
+    border-top: 0.5px solid var(--border);
+  }
+  .spec-cell:hover .spec-time { color: var(--accent); }
+  .row-divider { border: none; border-top: 0.5px solid var(--border); margin: 1rem 0; }
+  footer {
+    margin-top: 3rem; padding: 1rem 1.5rem 0;
+    border-top: 0.5px solid var(--border);
+    display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; font-size: 12px; color: var(--text-3);
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="title-block">
+    <h1>Barry Arm — daily spectrograms</h1>
+    <p>AK network &nbsp;&middot;&nbsp; BAT &middot; BAE &middot; PWL &nbsp;&middot;&nbsp; BHZ channel &nbsp;&middot;&nbsp; 50&thinsp;Hz sampling &nbsp;&middot;&nbsp; click any panel for full resolution</p>
+  </div>
+  <div class="header-right">
+    <span class="badge">Friday, 2026-06-26</span>
+    <div class="nav-links">
+      <a href="../index.html">all dates</a>
+    </div>
+  </div>
+</header>
+<div class="col-headers">
+  <div class="col-hdr">:00 &ndash; :10</div>
+  <div class="col-hdr">:10 &ndash; :20</div>
+  <div class="col-hdr">:20 &ndash; :30</div>
+  <div class="col-hdr">:30 &ndash; :40</div>
+  <div class="col-hdr">:40 &ndash; :50</div>
+  <div class="col-hdr">:50 &ndash; :00</div>
+</div>
+<main>
+
+        <div class="hour-block">
+          <div class="hour-label">00:00 &ndash; 01:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="00:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">00:00</div>
+                </div><div class="spec-cell missing" title="00:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">00:10</div>
+                </div><div class="spec-cell missing" title="00:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">00:20</div>
+                </div><div class="spec-cell missing" title="00:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">00:30</div>
+                </div><div class="spec-cell missing" title="00:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">00:40</div>
+                </div><div class="spec-cell missing" title="00:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">00:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">01:00 &ndash; 02:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="01:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">01:00</div>
+                </div><div class="spec-cell missing" title="01:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">01:10</div>
+                </div><div class="spec-cell missing" title="01:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">01:20</div>
+                </div><div class="spec-cell missing" title="01:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">01:30</div>
+                </div><div class="spec-cell missing" title="01:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">01:40</div>
+                </div><div class="spec-cell missing" title="01:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">01:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">02:00 &ndash; 03:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="02:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">02:00</div>
+                </div><div class="spec-cell missing" title="02:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">02:10</div>
+                </div><div class="spec-cell missing" title="02:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">02:20</div>
+                </div><div class="spec-cell missing" title="02:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">02:30</div>
+                </div><div class="spec-cell missing" title="02:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">02:40</div>
+                </div><div class="spec-cell missing" title="02:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">02:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">03:00 &ndash; 04:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="03:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">03:00</div>
+                </div><div class="spec-cell missing" title="03:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">03:10</div>
+                </div><div class="spec-cell missing" title="03:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">03:20</div>
+                </div><div class="spec-cell missing" title="03:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">03:30</div>
+                </div><div class="spec-cell missing" title="03:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">03:40</div>
+                </div><div class="spec-cell missing" title="03:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">03:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">04:00 &ndash; 05:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="04:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">04:00</div>
+                </div><div class="spec-cell missing" title="04:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">04:10</div>
+                </div><div class="spec-cell missing" title="04:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">04:20</div>
+                </div><div class="spec-cell missing" title="04:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">04:30</div>
+                </div><div class="spec-cell missing" title="04:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">04:40</div>
+                </div><div class="spec-cell missing" title="04:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">04:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">05:00 &ndash; 06:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="05:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">05:00</div>
+                </div><div class="spec-cell missing" title="05:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">05:10</div>
+                </div><div class="spec-cell missing" title="05:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">05:20</div>
+                </div><div class="spec-cell missing" title="05:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">05:30</div>
+                </div><div class="spec-cell missing" title="05:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">05:40</div>
+                </div><div class="spec-cell missing" title="05:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">05:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">06:00 &ndash; 07:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="06:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">06:00</div>
+                </div><div class="spec-cell missing" title="06:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">06:10</div>
+                </div><div class="spec-cell missing" title="06:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">06:20</div>
+                </div><div class="spec-cell missing" title="06:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">06:30</div>
+                </div><div class="spec-cell missing" title="06:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">06:40</div>
+                </div><div class="spec-cell missing" title="06:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">06:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">07:00 &ndash; 08:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="07:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">07:00</div>
+                </div><div class="spec-cell missing" title="07:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">07:10</div>
+                </div><div class="spec-cell missing" title="07:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">07:20</div>
+                </div><div class="spec-cell missing" title="07:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">07:30</div>
+                </div><div class="spec-cell missing" title="07:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">07:40</div>
+                </div><div class="spec-cell missing" title="07:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">07:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">08:00 &ndash; 09:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="08:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">08:00</div>
+                </div><div class="spec-cell missing" title="08:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">08:10</div>
+                </div><div class="spec-cell missing" title="08:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">08:20</div>
+                </div><div class="spec-cell missing" title="08:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">08:30</div>
+                </div><div class="spec-cell missing" title="08:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">08:40</div>
+                </div><div class="spec-cell missing" title="08:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">08:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">09:00 &ndash; 10:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="09:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">09:00</div>
+                </div><div class="spec-cell missing" title="09:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">09:10</div>
+                </div><div class="spec-cell missing" title="09:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">09:20</div>
+                </div><div class="spec-cell missing" title="09:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">09:30</div>
+                </div><div class="spec-cell missing" title="09:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">09:40</div>
+                </div><div class="spec-cell missing" title="09:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">09:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">10:00 &ndash; 11:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="10:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">10:00</div>
+                </div><div class="spec-cell missing" title="10:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">10:10</div>
+                </div><div class="spec-cell missing" title="10:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">10:20</div>
+                </div><div class="spec-cell missing" title="10:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">10:30</div>
+                </div><div class="spec-cell missing" title="10:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">10:40</div>
+                </div><div class="spec-cell missing" title="10:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">10:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">11:00 &ndash; 12:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="11:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">11:00</div>
+                </div><div class="spec-cell missing" title="11:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">11:10</div>
+                </div><div class="spec-cell missing" title="11:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">11:20</div>
+                </div><div class="spec-cell missing" title="11:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">11:30</div>
+                </div><div class="spec-cell missing" title="11:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">11:40</div>
+                </div><div class="spec-cell missing" title="11:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">11:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">12:00 &ndash; 13:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="12:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">12:00</div>
+                </div><div class="spec-cell missing" title="12:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">12:10</div>
+                </div><div class="spec-cell missing" title="12:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">12:20</div>
+                </div><div class="spec-cell missing" title="12:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">12:30</div>
+                </div><div class="spec-cell missing" title="12:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">12:40</div>
+                </div><div class="spec-cell missing" title="12:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">12:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">13:00 &ndash; 14:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="13:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">13:00</div>
+                </div><div class="spec-cell missing" title="13:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">13:10</div>
+                </div><div class="spec-cell missing" title="13:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">13:20</div>
+                </div><div class="spec-cell missing" title="13:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">13:30</div>
+                </div><div class="spec-cell missing" title="13:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">13:40</div>
+                </div><div class="spec-cell missing" title="13:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">13:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">14:00 &ndash; 15:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="14:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">14:00</div>
+                </div><div class="spec-cell missing" title="14:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">14:10</div>
+                </div><div class="spec-cell missing" title="14:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">14:20</div>
+                </div><div class="spec-cell missing" title="14:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">14:30</div>
+                </div><div class="spec-cell missing" title="14:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">14:40</div>
+                </div><div class="spec-cell missing" title="14:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">14:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">15:00 &ndash; 16:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="15:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">15:00</div>
+                </div><div class="spec-cell missing" title="15:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">15:10</div>
+                </div><div class="spec-cell missing" title="15:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">15:20</div>
+                </div><div class="spec-cell missing" title="15:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">15:30</div>
+                </div><div class="spec-cell missing" title="15:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">15:40</div>
+                </div><div class="spec-cell missing" title="15:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">15:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">16:00 &ndash; 17:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="16:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">16:00</div>
+                </div><div class="spec-cell missing" title="16:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">16:10</div>
+                </div><div class="spec-cell missing" title="16:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">16:20</div>
+                </div><div class="spec-cell missing" title="16:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">16:30</div>
+                </div><div class="spec-cell missing" title="16:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">16:40</div>
+                </div><div class="spec-cell missing" title="16:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">16:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">17:00 &ndash; 18:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="17:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">17:00</div>
+                </div><div class="spec-cell missing" title="17:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">17:10</div>
+                </div><div class="spec-cell missing" title="17:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">17:20</div>
+                </div><div class="spec-cell missing" title="17:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">17:30</div>
+                </div><div class="spec-cell missing" title="17:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">17:40</div>
+                </div><div class="spec-cell missing" title="17:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">17:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">18:00 &ndash; 19:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="18:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">18:00</div>
+                </div><div class="spec-cell missing" title="18:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">18:10</div>
+                </div><div class="spec-cell missing" title="18:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">18:20</div>
+                </div><div class="spec-cell missing" title="18:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">18:30</div>
+                </div><div class="spec-cell missing" title="18:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">18:40</div>
+                </div><div class="spec-cell missing" title="18:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">18:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">19:00 &ndash; 20:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="19:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">19:00</div>
+                </div><div class="spec-cell missing" title="19:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">19:10</div>
+                </div><div class="spec-cell missing" title="19:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">19:20</div>
+                </div><div class="spec-cell missing" title="19:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">19:30</div>
+                </div><div class="spec-cell missing" title="19:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">19:40</div>
+                </div><div class="spec-cell missing" title="19:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">19:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">20:00 &ndash; 21:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="20:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">20:00</div>
+                </div><div class="spec-cell missing" title="20:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">20:10</div>
+                </div><div class="spec-cell missing" title="20:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">20:20</div>
+                </div><div class="spec-cell missing" title="20:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">20:30</div>
+                </div><div class="spec-cell missing" title="20:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">20:40</div>
+                </div><div class="spec-cell missing" title="20:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">20:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">21:00 &ndash; 22:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="21:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">21:00</div>
+                </div><div class="spec-cell missing" title="21:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">21:10</div>
+                </div><div class="spec-cell missing" title="21:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">21:20</div>
+                </div><div class="spec-cell missing" title="21:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">21:30</div>
+                </div><div class="spec-cell missing" title="21:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">21:40</div>
+                </div><div class="spec-cell missing" title="21:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">21:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">22:00 &ndash; 23:00</div>
+          <div class="spec-row"><div class="spec-cell missing" title="22:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">22:00</div>
+                </div><div class="spec-cell missing" title="22:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">22:10</div>
+                </div><div class="spec-cell missing" title="22:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">22:20</div>
+                </div><div class="spec-cell missing" title="22:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">22:30</div>
+                </div><div class="spec-cell missing" title="22:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">22:40</div>
+                </div><div class="spec-cell missing" title="22:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">22:50</div>
+                </div></div>
+        </div>
+        <hr class="row-divider">
+        <div class="hour-block">
+          <div class="hour-label">23:00 &ndash; 00:00 (+1)</div>
+          <div class="spec-row"><div class="spec-cell missing" title="23:00">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">23:00</div>
+                </div><div class="spec-cell missing" title="23:10">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">23:10</div>
+                </div><div class="spec-cell missing" title="23:20">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">23:20</div>
+                </div><div class="spec-cell missing" title="23:30">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">23:30</div>
+                </div><div class="spec-cell missing" title="23:40">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">23:40</div>
+                </div><div class="spec-cell missing" title="23:50">
+                  <div class="missing-img"></div>
+                  <div class="spec-time">23:50</div>
+                </div></div>
+        </div>
+        
+</main>
+<footer>
+  <span>Generated by runSpectrogram.py &nbsp;&middot;&nbsp; UAFGI / AEC</span>
+  <span>2026-06-26</span>
+</footer>
+</body>
+</html>
