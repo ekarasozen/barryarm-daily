@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barry Arm — spectrogram archive</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0f111a; --surface-1: #171922; --border: rgba(255,255,255,0.08);
+    --text-1: #e8eaf0; --text-2: #9095a8; --text-3: #5a6070;
+    --accent: #4a90d9; --accent-bg: rgba(74,144,217,0.12);
+    --accent-border: rgba(74,144,217,0.35); --radius: 8px;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg); color: var(--text-1);
+    font-size: 15px; line-height: 1.6;
+    max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem;
+  }
+  h1 { font-size: 22px; font-weight: 500; margin-bottom: 2.5rem; }
+  .month-group { margin-bottom: 2rem; }
+  .month-group summary {
+    font-size: 13px; font-weight: 600; color: var(--text-2);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    margin-bottom: 0.5rem; cursor: pointer;
+    list-style: none;
+    display: flex; align-items: center; gap: 6px;
+    user-select: none;
+  }
+  .month-group summary::-webkit-details-marker { display: none; }
+  .month-group summary::before {
+    content: "\25B8"; /* right-pointing triangle, collapsed */
+    font-size: 10px; color: var(--text-3);
+    transition: transform 0.15s;
+    display: inline-block;
+  }
+  .month-group[open] summary::before {
+    transform: rotate(90deg); /* down-pointing when open */
+  }
+  .month-group summary:hover { color: var(--accent); }
+  ul { list-style: none; }
+  li {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.7rem 0; border-bottom: 0.5px solid var(--border);
+    gap: 12px;
+  }
+  li:first-child { border-top: 0.5px solid var(--border); }
+  a { color: var(--text-1); text-decoration: none; transition: color 0.15s; }
+  a:hover { color: var(--accent); }
+  .date-code { font-size: 12px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+  .count { font-size: 12px; color: var(--text-3); margin-top: 1.5rem; }
+</style>
+</head>
+<body>
+<h1>Barry Arm — daily spectrograms</h1>
+  <details class="month-group" open>
+    <summary>November 2026</summary>
+    <ul>
+      <li>
+        <a href="./2026-11/20261107_DataView.html">Saturday, November 7</a>
+        <span class="date-code">2026-11-07</span>
+      </li>
+      <li>
+        <a href="./2026-11/20261106_DataView.html">Friday, November 6</a>
+        <span class="date-code">2026-11-06</span>
+      </li>
+      <li>
+        <a href="./2026-11/20261105_DataView.html">Thursday, November 5</a>
+        <span class="date-code">2026-11-05</span>
+      </li>
+      <li>
+        <a href="./2026-11/20261104_DataView.html">Wednesday, November 4</a>
+        <span class="date-code">2026-11-04</span>
+      </li>
+      <li>
+        <a href="./2026-11/20261103_DataView.html">Tuesday, November 3</a>
+        <span class="date-code">2026-11-03</span>
+      </li>
+      <li>
+        <a href="./2026-11/20261102_DataView.html">Monday, November 2</a>
+        <span class="date-code">2026-11-02</span>
+      </li>
+      <li>
+        <a href="./2026-11/20261101_DataView.html">Sunday, November 1</a>
+        <span class="date-code">2026-11-01</span>
+      </li>
+    </ul>
+  </details>
+  <details class="month-group">
+    <summary>October 2026</summary>
+    <ul>
+      <li>
+        <a href="./2026-10/20261031_DataView.html">Saturday, October 31</a>
+        <span class="date-code">2026-10-31</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261030_DataView.html">Friday, October 30</a>
+        <span class="date-code">2026-10-30</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261029_DataView.html">Thursday, October 29</a>
+        <span class="date-code">2026-10-29</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261028_DataView.html">Wednesday, October 28</a>
+        <span class="date-code">2026-10-28</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261027_DataView.html">Tuesday, October 27</a>
+        <span class="date-code">2026-10-27</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261026_DataView.html">Monday, October 26</a>
+        <span class="date-code">2026-10-26</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261025_DataView.html">Sunday, October 25</a>
+        <span class="date-code">2026-10-25</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261024_DataView.html">Saturday, October 24</a>
+        <span class="date-code">2026-10-24</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261023_DataView.html">Friday, October 23</a>
+        <span class="date-code">2026-10-23</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261022_DataView.html">Thursday, October 22</a>
+        <span class="date-code">2026-10-22</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261021_DataView.html">Wednesday, October 21</a>
+        <span class="date-code">2026-10-21</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261020_DataView.html">Tuesday, October 20</a>
+        <span class="date-code">2026-10-20</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261019_DataView.html">Monday, October 19</a>
+        <span class="date-code">2026-10-19</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261018_DataView.html">Sunday, October 18</a>
+        <span class="date-code">2026-10-18</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261017_DataView.html">Saturday, October 17</a>
+        <span class="date-code">2026-10-17</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261016_DataView.html">Friday, October 16</a>
+        <span class="date-code">2026-10-16</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261015_DataView.html">Thursday, October 15</a>
+        <span class="date-code">2026-10-15</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261014_DataView.html">Wednesday, October 14</a>
+        <span class="date-code">2026-10-14</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261013_DataView.html">Tuesday, October 13</a>
+        <span class="date-code">2026-10-13</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261012_DataView.html">Monday, October 12</a>
+        <span class="date-code">2026-10-12</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261011_DataView.html">Sunday, October 11</a>
+        <span class="date-code">2026-10-11</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261010_DataView.html">Saturday, October 10</a>
+        <span class="date-code">2026-10-10</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261009_DataView.html">Friday, October 9</a>
+        <span class="date-code">2026-10-09</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261008_DataView.html">Thursday, October 8</a>
+        <span class="date-code">2026-10-08</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261007_DataView.html">Wednesday, October 7</a>
+        <span class="date-code">2026-10-07</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261006_DataView.html">Tuesday, October 6</a>
+        <span class="date-code">2026-10-06</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261005_DataView.html">Monday, October 5</a>
+        <span class="date-code">2026-10-05</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261004_DataView.html">Sunday, October 4</a>
+        <span class="date-code">2026-10-04</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261003_DataView.html">Saturday, October 3</a>
+        <span class="date-code">2026-10-03</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261002_DataView.html">Friday, October 2</a>
+        <span class="date-code">2026-10-02</span>
+      </li>
+      <li>
+        <a href="./2026-10/20261001_DataView.html">Thursday, October 1</a>
+        <span class="date-code">2026-10-01</span>
+      </li>
+    </ul>
+  </details>
+  <details class="month-group">
+    <summary>September 2026</summary>
+    <ul>
+      <li>
+        <a href="./2026-09/20260930_DataView.html">Wednesday, September 30</a>
+        <span class="date-code">2026-09-30</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260929_DataView.html">Tuesday, September 29</a>
+        <span class="date-code">2026-09-29</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260928_DataView.html">Monday, September 28</a>
+        <span class="date-code">2026-09-28</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260927_DataView.html">Sunday, September 27</a>
+        <span class="date-code">2026-09-27</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260926_DataView.html">Saturday, September 26</a>
+        <span class="date-code">2026-09-26</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260925_DataView.html">Friday, September 25</a>
+        <span class="date-code">2026-09-25</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260924_DataView.html">Thursday, September 24</a>
+        <span class="date-code">2026-09-24</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260923_DataView.html">Wednesday, September 23</a>
+        <span class="date-code">2026-09-23</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260922_DataView.html">Tuesday, September 22</a>
+        <span class="date-code">2026-09-22</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260921_DataView.html">Monday, September 21</a>
+        <span class="date-code">2026-09-21</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260920_DataView.html">Sunday, September 20</a>
+        <span class="date-code">2026-09-20</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260919_DataView.html">Saturday, September 19</a>
+        <span class="date-code">2026-09-19</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260918_DataView.html">Friday, September 18</a>
+        <span class="date-code">2026-09-18</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260917_DataView.html">Thursday, September 17</a>
+        <span class="date-code">2026-09-17</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260916_DataView.html">Wednesday, September 16</a>
+        <span class="date-code">2026-09-16</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260915_DataView.html">Tuesday, September 15</a>
+        <span class="date-code">2026-09-15</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260914_DataView.html">Monday, September 14</a>
+        <span class="date-code">2026-09-14</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260913_DataView.html">Sunday, September 13</a>
+        <span class="date-code">2026-09-13</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260912_DataView.html">Saturday, September 12</a>
+        <span class="date-code">2026-09-12</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260911_DataView.html">Friday, September 11</a>
+        <span class="date-code">2026-09-11</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260910_DataView.html">Thursday, September 10</a>
+        <span class="date-code">2026-09-10</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260909_DataView.html">Wednesday, September 9</a>
+        <span class="date-code">2026-09-09</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260908_DataView.html">Tuesday, September 8</a>
+        <span class="date-code">2026-09-08</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260907_DataView.html">Monday, September 7</a>
+        <span class="date-code">2026-09-07</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260906_DataView.html">Sunday, September 6</a>
+        <span class="date-code">2026-09-06</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260905_DataView.html">Saturday, September 5</a>
+        <span class="date-code">2026-09-05</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260904_DataView.html">Friday, September 4</a>
+        <span class="date-code">2026-09-04</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260903_DataView.html">Thursday, September 3</a>
+        <span class="date-code">2026-09-03</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260902_DataView.html">Wednesday, September 2</a>
+        <span class="date-code">2026-09-02</span>
+      </li>
+      <li>
+        <a href="./2026-09/20260901_DataView.html">Tuesday, September 1</a>
+        <span class="date-code">2026-09-01</span>
+      </li>
+    </ul>
+  </details>
+  <details class="month-group">
+    <summary>August 2026</summary>
+    <ul>
+      <li>
+        <a href="./2026-08/20260831_DataView.html">Monday, August 31</a>
+        <span class="date-code">2026-08-31</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260830_DataView.html">Sunday, August 30</a>
+        <span class="date-code">2026-08-30</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260829_DataView.html">Saturday, August 29</a>
+        <span class="date-code">2026-08-29</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260828_DataView.html">Friday, August 28</a>
+        <span class="date-code">2026-08-28</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260827_DataView.html">Thursday, August 27</a>
+        <span class="date-code">2026-08-27</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260826_DataView.html">Wednesday, August 26</a>
+        <span class="date-code">2026-08-26</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260825_DataView.html">Tuesday, August 25</a>
+        <span class="date-code">2026-08-25</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260824_DataView.html">Monday, August 24</a>
+        <span class="date-code">2026-08-24</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260823_DataView.html">Sunday, August 23</a>
+        <span class="date-code">2026-08-23</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260822_DataView.html">Saturday, August 22</a>
+        <span class="date-code">2026-08-22</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260821_DataView.html">Friday, August 21</a>
+        <span class="date-code">2026-08-21</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260820_DataView.html">Thursday, August 20</a>
+        <span class="date-code">2026-08-20</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260819_DataView.html">Wednesday, August 19</a>
+        <span class="date-code">2026-08-19</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260818_DataView.html">Tuesday, August 18</a>
+        <span class="date-code">2026-08-18</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260817_DataView.html">Monday, August 17</a>
+        <span class="date-code">2026-08-17</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260816_DataView.html">Sunday, August 16</a>
+        <span class="date-code">2026-08-16</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260815_DataView.html">Saturday, August 15</a>
+        <span class="date-code">2026-08-15</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260814_DataView.html">Friday, August 14</a>
+        <span class="date-code">2026-08-14</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260813_DataView.html">Thursday, August 13</a>
+        <span class="date-code">2026-08-13</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260812_DataView.html">Wednesday, August 12</a>
+        <span class="date-code">2026-08-12</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260811_DataView.html">Tuesday, August 11</a>
+        <span class="date-code">2026-08-11</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260810_DataView.html">Monday, August 10</a>
+        <span class="date-code">2026-08-10</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260809_DataView.html">Sunday, August 9</a>
+        <span class="date-code">2026-08-09</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260808_DataView.html">Saturday, August 8</a>
+        <span class="date-code">2026-08-08</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260807_DataView.html">Friday, August 7</a>
+        <span class="date-code">2026-08-07</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260806_DataView.html">Thursday, August 6</a>
+        <span class="date-code">2026-08-06</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260805_DataView.html">Wednesday, August 5</a>
+        <span class="date-code">2026-08-05</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260804_DataView.html">Tuesday, August 4</a>
+        <span class="date-code">2026-08-04</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260803_DataView.html">Monday, August 3</a>
+        <span class="date-code">2026-08-03</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260802_DataView.html">Sunday, August 2</a>
+        <span class="date-code">2026-08-02</span>
+      </li>
+      <li>
+        <a href="./2026-08/20260801_DataView.html">Saturday, August 1</a>
+        <span class="date-code">2026-08-01</span>
+      </li>
+    </ul>
+  </details>
+  <details class="month-group">
+    <summary>July 2026</summary>
+    <ul>
+      <li>
+        <a href="./2026-07/20260731_DataView.html">Friday, July 31</a>
+        <span class="date-code">2026-07-31</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260730_DataView.html">Thursday, July 30</a>
+        <span class="date-code">2026-07-30</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260729_DataView.html">Wednesday, July 29</a>
+        <span class="date-code">2026-07-29</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260728_DataView.html">Tuesday, July 28</a>
+        <span class="date-code">2026-07-28</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260727_DataView.html">Monday, July 27</a>
+        <span class="date-code">2026-07-27</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260726_DataView.html">Sunday, July 26</a>
+        <span class="date-code">2026-07-26</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260725_DataView.html">Saturday, July 25</a>
+        <span class="date-code">2026-07-25</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260724_DataView.html">Friday, July 24</a>
+        <span class="date-code">2026-07-24</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260723_DataView.html">Thursday, July 23</a>
+        <span class="date-code">2026-07-23</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260722_DataView.html">Wednesday, July 22</a>
+        <span class="date-code">2026-07-22</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260721_DataView.html">Tuesday, July 21</a>
+        <span class="date-code">2026-07-21</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260720_DataView.html">Monday, July 20</a>
+        <span class="date-code">2026-07-20</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260719_DataView.html">Sunday, July 19</a>
+        <span class="date-code">2026-07-19</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260718_DataView.html">Saturday, July 18</a>
+        <span class="date-code">2026-07-18</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260717_DataView.html">Friday, July 17</a>
+        <span class="date-code">2026-07-17</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260716_DataView.html">Thursday, July 16</a>
+        <span class="date-code">2026-07-16</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260715_DataView.html">Wednesday, July 15</a>
+        <span class="date-code">2026-07-15</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260714_DataView.html">Tuesday, July 14</a>
+        <span class="date-code">2026-07-14</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260713_DataView.html">Monday, July 13</a>
+        <span class="date-code">2026-07-13</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260712_DataView.html">Sunday, July 12</a>
+        <span class="date-code">2026-07-12</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260711_DataView.html">Saturday, July 11</a>
+        <span class="date-code">2026-07-11</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260710_DataView.html">Friday, July 10</a>
+        <span class="date-code">2026-07-10</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260709_DataView.html">Thursday, July 9</a>
+        <span class="date-code">2026-07-09</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260708_DataView.html">Wednesday, July 8</a>
+        <span class="date-code">2026-07-08</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260707_DataView.html">Tuesday, July 7</a>
+        <span class="date-code">2026-07-07</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260706_DataView.html">Monday, July 6</a>
+        <span class="date-code">2026-07-06</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260705_DataView.html">Sunday, July 5</a>
+        <span class="date-code">2026-07-05</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260704_DataView.html">Saturday, July 4</a>
+        <span class="date-code">2026-07-04</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260703_DataView.html">Friday, July 3</a>
+        <span class="date-code">2026-07-03</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260702_DataView.html">Thursday, July 2</a>
+        <span class="date-code">2026-07-02</span>
+      </li>
+      <li>
+        <a href="./2026-07/20260701_DataView.html">Wednesday, July 1</a>
+        <span class="date-code">2026-07-01</span>
+      </li>
+    </ul>
+  </details>
+  <details class="month-group">
+    <summary>June 2026</summary>
+    <ul>
+      <li>
+        <a href="./2026-06/20260630_DataView.html">Tuesday, June 30</a>
+        <span class="date-code">2026-06-30</span>
+      </li>
+      <li>
+        <a href="./2026-06/20260629_DataView.html">Monday, June 29</a>
+        <span class="date-code">2026-06-29</span>
+      </li>
+      <li>
+        <a href="./2026-06/20260628_DataView.html">Sunday, June 28</a>
+        <span class="date-code">2026-06-28</span>
+      </li>
+      <li>
+        <a href="./2026-06/20260627_DataView.html">Saturday, June 27</a>
+        <span class="date-code">2026-06-27</span>
+      </li>
+      <li>
+        <a href="./2026-06/20260626_DataView.html">Friday, June 26</a>
+        <span class="date-code">2026-06-26</span>
+      </li>
+    </ul>
+  </details>
+<p class="count">135 days available</p>
+</body>
+</html>
